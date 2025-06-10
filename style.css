@@ -1,0 +1,91 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #4b5563;
+    --headline-color: #111827;
+    --glow-color: #ef4444;
+}
+ /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 600px;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    background-color: #ebf1cd;
+}
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--headline-color);
+    margin: 1rem 0 2rem 0;
+    line-height: 1.1;
+  }
+  p {
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-top: 0;
+  }
+  .rose-glow {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 2rem auto;
+  }
+  /* Glow animation */
+  .glow-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 130px;
+    height: 130px;
+    background: var(--glow-color);
+    border-radius: 50%;
+    filter: blur(12px);
+    opacity: 0.7;
+    transform: translate(-50%, -50%);
+    animation: pulseGlow 2.6s ease-in-out infinite;
+    z-index: 0;
+  }
+
+   /* SVG styling */
+  svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    z-index: 1;
+    filter: drop-shadow(0 0 3px var(--glow-color));
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
+  svg:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 6px var(--glow-color));
+  }
+
+   @keyframes pulseGlow {
+    0%, 100% {
+      opacity: 0.7;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.4;
+      transform: translate(-50%, -50%) scale(1.15);
+    }
+}
+  
